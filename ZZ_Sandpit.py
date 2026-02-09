@@ -1,14 +1,26 @@
-#reminder - here is an integer that has been multiplied by 3
-number = 5
-print(number * 3)
+# list exploration / experiment
+def string_check(question, valid_ans_list):
+    """checks that users enter the full word
+    or the first letter of a word from a list of valid responses"""
 
-#here is a string that has been multiplied by 3
-# (note the speech marks and text colour)
-num_string = "5"
-print(num_string * 3)
+    while True:
 
-# an example showing what the len(foo) method does
-example_text = "hello world"
-text_length = len(example_text)
+        response = input(question).lower()
 
-print(f"'{example_text}' is {text_length} characters long")
+        for item in valid_ans_list:
+
+            # check if the response is the entire word
+            if response == item:
+                return item
+
+            # check if it's the first letter
+            elif response == item[0]:
+                return item
+        print(f"Please choose an option from {valid_ans_list}")
+# Main routine goes here
+levels = ['easy', 'medium', 'hard']
+
+like_coffee = string_check("Do you like coffee? ", ['yes', 'no'])
+print(f"You chose {like_coffee}")
+choose_level = string_check("Choose a level: ", levels)
+print(f"You chose {choose_level}")
